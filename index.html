@@ -291,17 +291,16 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     <div class="stack" id="stack">
       <article class="card" data-view>
         <div class="card-inner">
-          <a href="#" class="card-media" aria-label="Projekt 1 ansehen">
-            <!-- Statt Bild: <video src="..." autoplay muted loop playsinline></video> -->
-            <img src="https://picsum.photos/seed/case1/1600/900" alt="[ Projekt 1 Vorschau ]" loading="lazy">
+          <a href="https://lasuartin36-pixel.github.io/Nova/" class="card-media" target="_blank" rel="noopener" aria-label="Café Nova Website öffnen">
+            <video src="assets/nova-desktop.mp4" poster="assets/nova-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll-Aufnahme der Café-Nova-Website"></video>
           </a>
           <div class="card-body">
             <div class="card-num">1</div>
             <div>
-              <h3>Website, die [KUNDE 1] zu [ERGEBNIS, z. B. +120 % Anfragen] verholfen hat</h3>
-              <div class="tags"><span>UI Design</span><span>Webentwicklung</span></div>
+              <h3>Café Nova: Website für ein Café &amp; Bistro in Herbolzheim</h3>
+              <div class="tags"><span>Webdesign</span><span>Webentwicklung</span><span>Speisekarte</span><span>Responsive</span></div>
             </div>
-            <a href="#" class="card-link roll">Case ansehen →</a>
+            <a href="https://lasuartin36-pixel.github.io/Nova/" class="card-link roll" target="_blank" rel="noopener">Seite besuchen ↗</a>
           </div>
         </div>
         <div class="card-shade"></div>
@@ -464,6 +463,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
   /* Fallback: ohne GSAP bleibt alles sichtbar */
   if(!hasGsap || reduced){ root.classList.remove('js'); }
+  if(reduced){ document.querySelectorAll('video').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); }); }
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* Link-Roll: Text in span wrappen */
