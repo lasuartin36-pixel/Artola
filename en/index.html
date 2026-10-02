@@ -224,6 +224,32 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   .card{top:9vh;margin-bottom:8vh}
 }
 
+
+/* ---------- gallery lightbox ---------- */
+.card-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.gal-open{padding:10px 18px;border:1px solid var(--line);border-radius:999px;transition:background .3s,color .3s,border-color .3s}
+.gal-open:hover{background:var(--text);color:#000;border-color:var(--text)}
+.lb{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;background:rgba(6,6,6,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lb.open{opacity:1;visibility:visible}
+.lb-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--pad)}
+.lb-tabs{display:flex;gap:8px}
+.lb-tab{padding:9px 18px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#b8b8b8;transition:background .3s,color .3s}
+.lb-tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#000}
+.lb-count{white-space:nowrap;font-size:12px;letter-spacing:.14em;color:var(--muted);margin-left:auto}
+.lb-close{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;font-size:20px;line-height:1}
+.lb-close:hover,.lb-nav:hover{background:var(--text);color:#000}
+.lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,28px);padding:0 var(--pad)}
+.lb-fig{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.lb-fig img{max-width:100%;max-height:calc(100% - 34px);object-fit:contain;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.6);transition:opacity .25s}
+.lb.phone .lb-fig img{border-radius:22px}
+.lb-cap{font-size:13px;color:#b8b8b8;letter-spacing:.04em;min-height:20px}
+.lb-nav{flex:0 0 auto;width:52px;height:52px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .3s,color .3s}
+.lb-thumbs{display:flex;gap:10px;justify-content:center;padding:14px var(--pad) 20px;overflow-x:auto}
+.lb-thumbs button{flex:0 0 auto;height:54px;border-radius:8px;overflow:hidden;border:2px solid transparent;opacity:.5;transition:opacity .3s,border-color .3s}
+.lb-thumbs button[aria-current="true"]{opacity:1;border-color:var(--accent)}
+.lb-thumbs img{height:100%;width:auto;display:block}
+@media (max-width:700px){.lb-nav{display:none}.lb-thumbs button{height:44px}}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   .js [data-reveal]{opacity:1;transform:none}
@@ -314,34 +340,20 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     <div class="stack" id="stack">
       <article class="card" data-view>
         <div class="card-inner">
-          <a href="https://lasuartin36-pixel.github.io/Nova/" class="card-media" target="_blank" rel="noopener" aria-label="Open the Café Nova website">
-            <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>lasuartin36-pixel.github.io/Nova</span></div><video src="../assets/nova-desktop.mp4" poster="../assets/nova-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll recording of the Café Nova website"></video></div>
-            <div class="dev-phone" aria-hidden="false"><div class="dev-screen"><img class="on" src="../assets/nova-m1.jpg" alt="Smartphone view: Home" width="540" height="1170" loading="lazy"><img src="../assets/nova-m2.jpg" alt="Smartphone view: Impressions" width="540" height="1170" loading="lazy"><img src="../assets/nova-m3.jpg" alt="Smartphone view: Menu" width="540" height="1170" loading="lazy"><img src="../assets/nova-m4.jpg" alt="Smartphone view: Visit" width="540" height="1170" loading="lazy"></div></div>
-          </a>
-          <div class="card-body">
-            <div class="card-num">1</div>
-            <div>
-              <h3>Café Nova: website for a café &amp; bistro in Herbolzheim, Germany</h3>
-              <div class="tags"><span>Web design</span><span>Web development</span><span>Menu page</span><span>Responsive</span></div>
-            </div>
-            <a href="https://lasuartin36-pixel.github.io/Nova/" class="card-link roll" target="_blank" rel="noopener">Visit site ↗</a>
-          </div>
-        </div>
-        <div class="card-shade"></div>
-      </article>
-      <article class="card" data-view>
-        <div class="card-inner">
           <a href="https://fewo-bakilala.com/" class="card-media" target="_blank" rel="noopener" aria-label="Open the FeWo Bakilala website">
             <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>fewo-bakilala.com</span></div><video src="../assets/fewo-desktop.mp4" poster="../assets/fewo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll recording of the FeWo Bakilala website"></video></div>
             <div class="dev-phone" aria-hidden="false"><div class="dev-screen"><img class="on" src="../assets/fewo-m1.jpg" alt="Smartphone view: Home" width="540" height="1170" loading="lazy"><img src="../assets/fewo-m2.jpg" alt="Smartphone view: Living area" width="540" height="1170" loading="lazy"><img src="../assets/fewo-m3.jpg" alt="Smartphone view: Location" width="540" height="1170" loading="lazy"><img src="../assets/fewo-m4.jpg" alt="Smartphone view: Gallery" width="540" height="1170" loading="lazy"></div></div>
           </a>
           <div class="card-body">
-            <div class="card-num">2</div>
+            <div class="card-num">1</div>
             <div>
               <h3>FeWo Bakilala: trilingual website for a holiday apartment in Kippenheim, Germany</h3>
               <div class="tags"><span>Web design</span><span>Web development</span><span>Multilingual (DE/EN/FR)</span><span>Responsive</span></div>
             </div>
-            <a href="https://fewo-bakilala.com/" class="card-link roll" target="_blank" rel="noopener">Visit site ↗</a>
+            <div class="card-actions">
+              <button type="button" class="card-link roll gal-open" data-gallery="fewo">View screenshots</button>
+              <a href="https://fewo-bakilala.com/" class="card-link roll" target="_blank" rel="noopener">Visit site ↗</a>
+            </div>
           </div>
         </div>
         <div class="card-shade"></div>
@@ -478,6 +490,22 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Screenshot gallery" hidden>
+  <div class="lb-top">
+    <div class="lb-tabs" role="tablist">
+      <button class="lb-tab" role="tab" data-kind="desktop" aria-selected="true">Desktop</button>
+      <button class="lb-tab" role="tab" data-kind="phone" aria-selected="false">Smartphone</button>
+    </div>
+    <span class="lb-count" id="lbCount"></span>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  </div>
+  <div class="lb-stage">
+    <button class="lb-nav" id="lbPrev" aria-label="Previous image">←</button>
+    <figure class="lb-fig"><img id="lbImg" src="" alt=""><figcaption class="lb-cap" id="lbCap"></figcaption></figure>
+    <button class="lb-nav" id="lbNext" aria-label="Next image">→</button>
+  </div>
+  <div class="lb-thumbs" id="lbThumbs"></div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -599,6 +627,72 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       imgs[k].classList.remove('on'); k = (k+1) % imgs.length; imgs[k].classList.add('on');
     }, 2800);
   });
+
+
+  /* Screenshot-Galerie (Lightbox) */
+  (function(){
+    var DATA = {"fewo": {"desktop": [["../assets/fewo-d1.jpg", "Home"], ["../assets/fewo-d2.jpg", "Living area"], ["../assets/fewo-d3.jpg", "The apartment"], ["../assets/fewo-d4.jpg", "Location"], ["../assets/fewo-d5.jpg", "Gallery"], ["../assets/fewo-d6.jpg", "Gallery 2"], ["../assets/fewo-d7.jpg", "Reviews"], ["../assets/fewo-d8.jpg", "Booking"]], "phone": [["../assets/fewo-mg1.jpg", "Home"], ["../assets/fewo-mg2.jpg", "Living area"], ["../assets/fewo-mg3.jpg", "Location"], ["../assets/fewo-mg4.jpg", "Gallery"], ["../assets/fewo-mg5.jpg", "Reviews"]]}};
+    var lb = document.getElementById('lb'); if(!lb) return;
+    var img = document.getElementById('lbImg'), cap = document.getElementById('lbCap'),
+        count = document.getElementById('lbCount'), thumbs = document.getElementById('lbThumbs'),
+        tabs = lb.querySelectorAll('.lb-tab'), opener = null, key = null, kind = 'desktop', idx = 0;
+    function list(){ return DATA[key][kind]; }
+    function render(){
+      var it = list()[idx];
+      img.style.opacity = 0;
+      img.onload = function(){ img.style.opacity = 1; };
+      img.src = it[0]; img.alt = it[1]; cap.textContent = it[1];
+      count.textContent = (idx+1) + ' / ' + list().length;
+      thumbs.querySelectorAll('button').forEach(function(b,i){ b.setAttribute('aria-current', i===idx); });
+      lb.classList.toggle('phone', kind==='phone');
+    }
+    function build(){
+      thumbs.innerHTML = '';
+      list().forEach(function(it,i){
+        var b = document.createElement('button'); b.type='button'; b.setAttribute('aria-label', it[1]);
+        var t = document.createElement('img'); t.src = it[0]; t.alt = ''; t.loading = 'lazy'; b.appendChild(t);
+        b.addEventListener('click', function(){ idx = i; render(); });
+        thumbs.appendChild(b);
+      });
+    }
+    function step(d){ idx = (idx + d + list().length) % list().length; render(); }
+    function setKind(k){
+      kind = k; idx = 0;
+      tabs.forEach(function(t){ t.setAttribute('aria-selected', t.getAttribute('data-kind')===k); });
+      build(); render();
+    }
+    function open(btn){
+      key = btn.getAttribute('data-gallery'); opener = btn;
+      lb.hidden = false; void lb.offsetWidth; lb.classList.add('open');
+      setKind('desktop');
+      if(lenis) lenis.stop(); else document.body.style.overflow = 'hidden';
+      document.getElementById('lbClose').focus();
+    }
+    function close(){
+      lb.classList.remove('open');
+      setTimeout(function(){ lb.hidden = true; }, 360);
+      if(lenis) lenis.start(); else document.body.style.overflow = '';
+      if(opener) opener.focus();
+    }
+    document.querySelectorAll('.gal-open').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+    tabs.forEach(function(t){ t.addEventListener('click', function(){ setKind(t.getAttribute('data-kind')); }); });
+    document.getElementById('lbClose').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', function(){ step(-1); });
+    document.getElementById('lbNext').addEventListener('click', function(){ step(1); });
+    lb.addEventListener('click', function(e){ if(e.target.classList.contains('lb-stage')) close(); });
+    document.addEventListener('keydown', function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      else if(e.key==='ArrowLeft') step(-1);
+      else if(e.key==='ArrowRight') step(1);
+    });
+    var sx = null;
+    lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', function(e){
+      if(sx===null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+      if(Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    });
+  })();
 
   /* Cursor "View" */
   var cursor = document.getElementById('cursor');
