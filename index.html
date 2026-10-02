@@ -211,6 +211,8 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   .cta-cols{grid-template-columns:repeat(2,1fr)}
   .cta-col:nth-child(n+3){display:none}
   .card-body{grid-template-columns:1fr}
+  .card-actions{grid-column:auto}
+  .card-actions .card-link{flex:1 1 auto}
   .card-num{font-size:30px}
   .slider{grid-template-columns:1fr}
   .scroll-hint{display:none}
@@ -226,9 +228,12 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
 
 /* ---------- gallery lightbox ---------- */
-.card-actions{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
-.gal-open{padding:10px 18px;border:1px solid var(--line);border-radius:999px;transition:background .3s,color .3s,border-color .3s}
-.gal-open:hover{background:var(--text);color:#000;border-color:var(--text)}
+.card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
+@media (min-width:901px){.card-actions{grid-column:2}}
+.card-actions .card-link{display:inline-flex;align-items:center;justify-content:center;gap:.5em;height:46px;padding:0 24px;border:1px solid var(--line);border-radius:999px;line-height:1;transition:background .3s,color .3s,border-color .3s}
+.card-actions .card-link:hover{background:var(--text);color:#000;border-color:var(--text)}
+.card-actions .card-link.solid{background:var(--accent);border-color:var(--accent);color:#000}
+.card-actions .card-link.solid:hover{background:var(--text);border-color:var(--text)}
 .lb{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;background:rgba(6,6,6,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
 .lb.open{opacity:1;visibility:visible}
 .lb-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--pad)}
@@ -352,7 +357,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
             </div>
             <div class="card-actions">
               <button type="button" class="card-link gal-open" data-gallery="fewo">Screenshots ansehen</button>
-              <a href="https://fewo-bakilala.com/" class="card-link roll" target="_blank" rel="noopener">Seite besuchen ↗</a>
+              <a href="https://fewo-bakilala.com/" class="card-link solid" target="_blank" rel="noopener">Seite besuchen ↗</a>
             </div>
           </div>
         </div>
