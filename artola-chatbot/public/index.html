@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Lumen – Chatbot-Demo von ARTOLA</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Georgia, serif; background: #faf6f1; color: #2a1a1d; }
+  .demo { background: #0a0a0a; color: #fff; font: 13px system-ui, sans-serif; text-align: center; padding: 8px 16px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 24px 6vw; }
+  header b { font-size: 22px; letter-spacing: .04em; }
+  header a { background: #7a1f2b; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 99px; font: 14px system-ui, sans-serif; }
+  .hero { padding: 10vh 6vw; max-width: 900px; }
+  h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1.05; font-weight: 400; }
+  .hero p { font: 18px/1.6 system-ui, sans-serif; color: #6b5a5d; margin-top: 20px; max-width: 520px; }
+  .hint { margin-top: 36px; font: 15px system-ui, sans-serif; background: #fff; border-radius: 14px; padding: 16px 18px; max-width: 520px; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+  .hint em { color: #7a1f2b; font-style: normal; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="demo">Demo-Website · Salon Lumen ist ein fiktiver Betrieb · Chatbot von ARTOLA</div>
+  <header><b>Salon Lumen</b><a href="#">Termin buchen</a></header>
+  <section class="hero">
+    <h1>Ihr Friseur<br>in Offenburg.</h1>
+    <p>Schnitt, Farbe, Pflege – mit Zeit für Sie und veganen Produkten.</p>
+    <div class="hint">Probieren Sie den KI-Assistenten unten rechts aus, z. B.:<br>
+      <em>„Habt ihr samstags offen?“</em> · <em>„Was kostet Strähnen?“</em> · <em>„Kann ich mit Karte zahlen?“</em></div>
+  </section>
+
+  <!-- Das ist die EINE Zeile, die beim Kunden eingebaut wird: -->
+  <script src="/widget.js" data-bot="demo-friseur" data-title="Salon Lumen" data-color="#7a1f2b"
+          data-greeting="Hallo! Ich bin der digitale Assistent von Salon Lumen. Fragen Sie mich zu Preisen, Öffnungszeiten oder Terminen." defer></script>
+</body>
+</html>
