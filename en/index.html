@@ -110,8 +110,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stack{position:relative}
 .card{position:sticky;top:11vh;margin-bottom:12vh}
 .card:last-child{margin-bottom:0}
-.card-inner{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(16px,2vw,28px);transform-origin:center top;will-change:transform}
-.card-media{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:16/9;width:min(100%,calc(62vh * 1.7778));margin:0 auto;background:radial-gradient(120% 120% at 85% 0%,#1d2a44 0%,#161616 62%)}
+.card-inner{max-width:min(100%,780px);margin-inline:auto;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(16px,2vw,28px);transform-origin:center top;will-change:transform}
+.card-media{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:16/9;width:100%;margin:0 auto;background:radial-gradient(120% 120% at 85% 0%,#1d2a44 0%,#161616 62%)}
 .dev-desktop{position:absolute;left:4%;top:7%;width:78%;height:86%;display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .dev-bar{flex:0 0 clamp(16px,2.3vw,30px);display:flex;align-items:center;gap:clamp(3px,.5vw,6px);padding:0 clamp(6px,1vw,12px);background:#202020}
 .dev-bar i{width:clamp(5px,.7vw,9px);height:clamp(5px,.7vw,9px);border-radius:50%;background:#4a4a4a}
@@ -125,9 +125,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dev-screen img.on{opacity:1}
 .card:hover .dev-desktop{transform:translateY(-6px)}
 .card:hover .dev-phone{transform:translateY(-12px)}
-.card-body{display:grid;grid-template-columns:70px 1fr auto;gap:clamp(12px,2vw,32px);align-items:end;padding:clamp(16px,2vw,28px) 6px 6px}
+.card-body{display:grid;grid-template-columns:56px 1fr;gap:clamp(12px,2vw,32px);align-items:end;padding:clamp(16px,2vw,28px) 6px 6px}
 .card-num{font-family:var(--head);font-weight:700;font-size:clamp(32px,4vw,64px);line-height:1;color:var(--accent)}
-.card h3{font-family:var(--head);font-weight:700;letter-spacing:-.025em;line-height:1.05;font-size:clamp(22px,3.2vw,50px)}
+.card h3{font-family:var(--head);font-weight:700;letter-spacing:-.025em;line-height:1.05;font-size:clamp(20px,2.4vw,34px)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .tags span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:#b8b8b8}
 .card-link{font-size:12px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
@@ -226,7 +226,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
 
 /* ---------- gallery lightbox ---------- */
-.card-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.card-actions{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
 .gal-open{padding:10px 18px;border:1px solid var(--line);border-radius:999px;transition:background .3s,color .3s,border-color .3s}
 .gal-open:hover{background:var(--text);color:#000;border-color:var(--text)}
 .lb{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;background:rgba(6,6,6,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
@@ -351,7 +351,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
               <div class="tags"><span>Web design</span><span>Web development</span><span>Multilingual (DE/EN/FR)</span><span>Responsive</span></div>
             </div>
             <div class="card-actions">
-              <button type="button" class="card-link roll gal-open" data-gallery="fewo">View screenshots</button>
+              <button type="button" class="card-link gal-open" data-gallery="fewo">View screenshots</button>
               <a href="https://fewo-bakilala.com/" class="card-link roll" target="_blank" rel="noopener">Visit site ↗</a>
             </div>
           </div>
