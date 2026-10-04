@@ -17,8 +17,8 @@ export default {
       'http://localhost:3000',
       'https://artola-chatbot.vercel.app',        // Demo-Seite auf Vercel
       'https://lasuartin36-pixel.github.io',      // ARTOLA-Seite über GitHub Pages
-      'https://DEINE-DOMAIN.de',                  // TODO: eigene Domain der ARTOLA-Seite (mit https://, ohne Pfad)
-      'https://www.DEINE-DOMAIN.de'
+      'https://artola-digitalsolution.com',        // eigene Domain der ARTOLA-Seite
+      'https://www.artola-digitalsolution.com'
     ],
     prompt: rules('Salon Lumen') + `
 Salon Lumen ist ein (fiktiver Demo-)Friseursalon in Offenburg.

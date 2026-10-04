@@ -9,7 +9,7 @@
 //         data-theme="dark" data-lang="en" data-height="520px" defer></script>
 // Fragen von außen abschicken: document.querySelector('#chat-demo').ask('Habt ihr samstags offen?')
 (() => {
-  const BRAND_URL = 'https://DEINE-DOMAIN.de'; // TODO: Adresse der ARTOLA-Website (oder per data-brand überschreiben)
+  const BRAND_URL = 'https://artola-digitalsolution.com'; // Adresse der ARTOLA-Website (oder per data-brand überschreiben)
   const s = document.currentScript;
   const API = new URL('/api/chat', s.src).href;
   const { bot, title = 'Assistent', color = '#111', greeting, mode, target, theme, lang, height = '520px',
