@@ -138,22 +138,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cursor.on{transform:scale(1)}
 @media (hover:none),(pointer:coarse){.cursor{display:none}}
 
-/* ---------- testimonials ---------- */
-.testi-head .h-xl{font-size:clamp(48px,11vw,180px)}
-.slider{margin-top:clamp(50px,7vw,110px);display:grid;grid-template-columns:90px 1fr;gap:clamp(16px,3vw,48px);align-items:start}
-.slide-num{font-family:var(--head);font-weight:700;font-size:clamp(28px,3.4vw,52px);color:var(--accent);line-height:1}
-.slides{position:relative;min-height:clamp(320px,34vw,460px)}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}
-.slide.active{opacity:1;visibility:visible;position:relative}
-.slide blockquote{font-family:var(--head);font-weight:600;letter-spacing:-.02em;line-height:1.12;font-size:clamp(24px,3.6vw,58px)}
-.who{display:flex;align-items:center;gap:16px;margin-top:36px}
-.who img{width:60px;height:60px;border-radius:50%;object-fit:cover}
-.who b{display:block;font-weight:500}
-.who small{color:var(--muted);font-size:13px}
-.arrows{display:flex;gap:12px;margin-top:32px}
-.arrow{width:56px;height:56px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .3s,color .3s}
-.arrow:hover{background:var(--text);color:#000}
-
 /* ---------- about ---------- */
 .about-intro{margin:40px 0 clamp(50px,7vw,110px);max-width:1300px}
 .about-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(30px,6vw,110px);align-items:start}
@@ -214,7 +198,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   .card-actions{grid-column:auto}
   .card-actions .card-link{flex:1 1 auto}
   .card-num{font-size:30px}
-  .slider{grid-template-columns:1fr}
   .scroll-hint{display:none}
 }
 @media (max-width:700px){
@@ -412,43 +395,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="wrap">
-    <span class="label" data-reveal>[ TESTIMONIALS ]</span>
-    <div class="testi-head" style="margin-top:30px">
-      <h2 class="h-xl" aria-label="Results speak louder">
-        <span class="mask"><span data-line>Results</span></span>
-        <span class="mask"><span data-line>Speak</span></span>
-        <span class="mask"><span data-line>Louder</span></span>
-      </h2>
-    </div>
-    <div class="slider" data-reveal>
-      <div class="slide-num" id="slideNum">1</div>
-      <div>
-        <div class="slides" id="slides">
-          <div class="slide active">
-            <blockquote>„[ZITAT 1 – Was hat der Kunde über die Zusammenarbeit gesagt? Konkretes Ergebnis nennen.]“</blockquote>
-            <div class="who"><img src="https://picsum.photos/seed/p1/120/120" alt="" loading="lazy"><div><b>[Name 1]</b><small>[Rolle, Firma]</small></div></div>
-          </div>
-          <div class="slide">
-            <blockquote>„[ZITAT 2 – Wie war der Prozess? Was hat sich verändert?]“</blockquote>
-            <div class="who"><img src="https://picsum.photos/seed/p2/120/120" alt="" loading="lazy"><div><b>[Name 2]</b><small>[Rolle, Firma]</small></div></div>
-          </div>
-          <div class="slide">
-            <blockquote>„[ZITAT 3 – Würdest du weiterempfehlen? Warum?]“</blockquote>
-            <div class="who"><img src="https://picsum.photos/seed/p3/120/120" alt="" loading="lazy"><div><b>[Name 3]</b><small>[Rolle, Firma]</small></div></div>
-          </div>
-        </div>
-        <div class="arrows">
-          <button class="arrow" id="prev" aria-label="Vorheriges Zitat">←</button>
-          <button class="arrow" id="next" aria-label="Nächstes Zitat">→</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="wrap">
@@ -514,7 +460,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       <h4>[ SITE ]</h4>
       <a href="#top" class="roll">Home</a>
       <a href="#projects" class="roll">Projects</a>
-      <a href="#testimonials" class="roll">Testimonials</a>
       <a href="#about" class="roll">About</a>
       <a href="#archive" class="roll">Archive</a>
     </div>
@@ -645,30 +590,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     });
   });
 
-  /* Testimonial-Slider (Fade, Pfeile, Auto) */
-  var slides = document.querySelectorAll('#slides .slide'), idx = 0, auto;
-  var numEl = document.getElementById('slideNum');
-  function show(i){
-    idx = (i + slides.length) % slides.length;
-    slides.forEach(function(s,k){ s.classList.toggle('active', k===idx); });
-    numEl.textContent = idx + 1;
-  }
-  function restart(){ clearInterval(auto); if(!reduced) auto = setInterval(function(){ show(idx+1); }, 7000); }
-  document.getElementById('next').addEventListener('click', function(){ show(idx+1); restart(); });
-  document.getElementById('prev').addEventListener('click', function(){ show(idx-1); restart(); });
-  restart();
-  /* Höhe des Slider-Containers an das höchste Zitat anpassen */
-  function fitSlides(){
-    var c = document.getElementById('slides'), h = 0;
-    slides.forEach(function(s){
-      var was = s.className; s.style.position='relative'; s.style.visibility='hidden'; s.style.opacity=0;
-      h = Math.max(h, s.offsetHeight); s.style.position=''; s.style.visibility=''; s.style.opacity='';
-    });
-    c.style.minHeight = h + 'px';
-  }
-  fitSlides(); window.addEventListener('resize', fitSlides); window.addEventListener('load', fitSlides);
-
-
   /* Smartphone-Screens: automatisch durchblättern */
   document.querySelectorAll('.dev-screen').forEach(function(sc){
     var imgs = sc.querySelectorAll('img'), k = 0;
@@ -789,10 +710,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     start:'top 88%', once:true,
     onEnter:function(els){ gsap.to(els, {opacity:1, y:0, duration:.8, ease:'power2.out', stagger:.1, overwrite:true}); }
   });
-
-  /* Testimonial-Headline: Zeilen aus Maske */
-  gsap.set('[data-line]', {yPercent:110});
-  gsap.to('[data-line]', {yPercent:0, duration:1, ease:'power4.out', stagger:.1, scrollTrigger:{trigger:'.testi-head', start:'top 80%', once:true}});
 
   /* Text-Reveal: Wörter von grau zu weiß (scroll-gekoppelt) */
   var rt = document.getElementById('revealText');
