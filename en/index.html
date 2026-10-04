@@ -188,7 +188,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 @media (max-width:900px){
   .nav .links,.nav>.btn{display:none}
   .burger{display:block}
-  .about-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
   .portrait{position:relative;top:0;max-width:420px}
   .foot-top{grid-template-columns:1fr 1fr}
   .foot-top>:first-child{grid-column:1/-1}
@@ -213,6 +213,28 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 .self-note{max-width:620px;margin:clamp(60px,8vw,120px) auto 0;text-align:center}
 .self-note .label{display:block;margin-bottom:14px}
 .self-note p{font-family:var(--head);font-weight:500;letter-spacing:-.01em;line-height:1.3;font-size:clamp(18px,1.8vw,26px);color:#cfcfcf}
+
+
+/* ---------- pricing ---------- */
+.pr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pr-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,2.6vw,36px)}
+.pr-card.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 50px rgba(96,165,250,.12)}
+.pr-name{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.pr-price{font-family:var(--head);font-weight:700;letter-spacing:-.03em;line-height:1;font-size:clamp(34px,3.6vw,54px);white-space:nowrap;margin:18px 0 6px}
+.pr-price small{display:block;font-family:var(--body);font-weight:400;letter-spacing:0;font-size:13px;color:var(--muted);margin-top:8px}
+.pr-for{color:#b8b8b8;font-size:15px;margin:14px 0 22px}
+.pr-list{list-style:none;display:grid;align-content:start;gap:12px;margin-bottom:30px;flex:1}
+.pr-list li{display:flex;gap:10px;font-size:15px;color:#e2e2e0}
+.pr-list li::before{content:"";flex:0 0 7px;height:7px;margin-top:.55em;border-radius:50%;background:var(--accent)}
+.pr-card .btn{align-self:flex-start}
+.pr-extras{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pr-extra{border:1px solid var(--line);border-radius:20px;padding:clamp(20px,2.2vw,28px);display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.pr-extra b{display:block;font-family:var(--head);font-weight:600;font-size:clamp(18px,1.8vw,24px);letter-spacing:-.01em;margin-bottom:6px}
+.pr-extra p{color:#b8b8b8;font-size:14px;max-width:360px}
+.pr-extra .pr-tag{font-family:var(--head);font-weight:700;font-size:clamp(20px,2vw,28px);white-space:nowrap;color:var(--accent)}
+.pr-note{margin-top:24px;font-size:13px;color:var(--muted);max-width:760px}
+@media (max-width:900px){.pr-grid,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
 
 /* ---------- chatbot demo ---------- */
 .cb-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(30px,6vw,100px);align-items:start;margin-top:30px}
@@ -274,6 +296,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   <a href="#top" class="logo" aria-label="Artola Digital Solution – top"><img src="../assets/logo-horizontal.webp" alt="Artola" width="700" height="174"></a>
   <nav class="links" aria-label="Main navigation">
     <a href="#projects" class="roll">PROJECTS</a>
+    <a href="#pricing" class="roll">PRICING</a>
     <a href="#about" class="roll">ABOUT</a>
     <a href="#archive" class="roll">ARCHIVE</a>
     <a href="../" class="roll" hreflang="de" lang="de" aria-label="Deutsche Version">DE</a>
@@ -283,6 +306,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 </header>
 <div class="overlay" id="overlay">
   <a href="#projects">Projects</a>
+  <a href="#pricing">Pricing</a>
   <a href="#about">About</a>
   <a href="#archive">Archive</a>
   <a href="../" hreflang="de" lang="de">Deutsch</a>
@@ -368,6 +392,44 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       <span class="label">[ ABOUT THIS SITE ]</span>
       <p>This website is a project of mine too: conceived and designed by Artin Lasu and built with AI assistance.</p>
     </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="pr-head">
+      <h2 class="h-xl" data-reveal style="font-size:clamp(44px,9vw,150px)">Clear<br>pricing</h2>
+      <span class="label" data-reveal>[ PRICING ]</span>
+    </div>
+    <div class="pr-grid">
+      <article class="pr-card" data-reveal>
+        <span class="pr-name">Start</span>
+        <div class="pr-price">€250</div>
+        <p class="pr-for">For freelancers who want to become visible online.</p>
+        <ul class="pr-list"><li>1 page (one-pager)</li><li>Responsive design for mobile, tablet and desktop</li><li>Ways to get in touch (phone, email, WhatsApp)</li></ul>
+        <a href="#contact" class="btn">Send an inquiry</a>
+      </article>
+      <article class="pr-card hl" data-reveal>
+        <span class="pr-name">Business</span>
+        <div class="pr-price">€400–500<small>depending on scope</small></div>
+        <p class="pr-for">For businesses with several services: trades, restaurants, practices, salons.</p>
+        <ul class="pr-list"><li>Up to 5 subpages</li><li>Responsive design</li><li>Gallery or menu page</li><li>Directions with map</li><li>SEO basics</li></ul>
+        <a href="#contact" class="btn solid">Send an inquiry</a>
+      </article>
+      <article class="pr-card" data-reveal>
+        <span class="pr-name">Premium</span>
+        <div class="pr-price">from €1,500</div>
+        <p class="pr-for">For larger projects with special requirements.</p>
+        <ul class="pr-list"><li>Individual design</li><li>More pages, multilingual on request</li><li>Special features, e.g. booking or shop</li><li>Personal consultation on scope</li></ul>
+        <a href="#contact" class="btn">Send an inquiry</a>
+      </article>
+    </div>
+    <div class="pr-extras" data-reveal>
+      <div class="pr-extra"><div><b>Google listing</b><p>Setup of your Google Business Profile, so customers can find you on Google and on the map.</p></div><span class="pr-tag">+ €100</span></div>
+      <div class="pr-extra"><div><b>Hosting &amp; maintenance</b><p>Optional: running the site, updates and small changes. The price depends on which tasks I take over.</p></div><span class="pr-tag">from €20 / month</span></div>
+    </div>
+    <p class="pr-note" data-reveal>Other wishes (e.g. an additional language or an AI chatbot) I am happy to discuss personally. All prices in euros. VAT: [please add: “small business according to § 19 UStG, no VAT charged” or “plus VAT”]</p>
   </div>
 </section>
 
@@ -460,6 +522,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       <h4>[ SITE ]</h4>
       <a href="#top" class="roll">Home</a>
       <a href="#projects" class="roll">Projects</a>
+      <a href="#pricing" class="roll">Pricing</a>
       <a href="#about" class="roll">About</a>
       <a href="#archive" class="roll">Archive</a>
     </div>
