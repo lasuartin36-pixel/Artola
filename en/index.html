@@ -236,19 +236,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 .pr-note{margin-top:24px;font-size:13px;color:var(--muted);max-width:760px}
 @media (max-width:900px){.pr-grid,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
 
-/* ---------- chatbot demo ---------- */
-.cb-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(30px,6vw,100px);align-items:start;margin-top:30px}
-.cb-copy .h-lg{margin-bottom:28px}
-.cb-copy p{color:#cfcfcf;max-width:520px;font-size:clamp(16px,1.3vw,20px);margin-bottom:32px}
-.cb-notice{font-size:13px;color:#b8b8b8;border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:18px}
-.cb-notice b{color:var(--text);font-weight:500}
-.cb-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.cb-chips .label{width:100%;margin-bottom:2px}
-.cb-chips button{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:#d8d8d8;text-align:left;transition:background .3s,color .3s,border-color .3s}
-.cb-chips button:hover{background:var(--text);color:#000;border-color:var(--text)}
-#chat-demo{min-height:520px;border-radius:18px;color:var(--muted);display:grid;place-items:center;font-size:14px}
-@media (max-width:900px){.cb-grid{grid-template-columns:1fr}}
-
 /* ---------- gallery lightbox ---------- */
 .card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
 @media (min-width:901px){.card-actions{grid-column:2}}
@@ -430,30 +417,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       <div class="pr-extra"><div><b>Hosting &amp; maintenance</b><p>Optional: running the site, updates and small changes. The price depends on which tasks I take over.</p></div><span class="pr-tag">from €20 / month</span></div>
     </div>
     <p class="pr-note" data-reveal>Other wishes (e.g. an additional language or an AI chatbot) I am happy to discuss personally. All prices in euros. VAT: [please add: “small business according to § 19 UStG, no VAT charged” or “plus VAT”]</p>
-  </div>
-</section>
-
-<!-- CHATBOT DEMO -->
-<section class="section" id="chatbot">
-  <div class="wrap">
-    <span class="label" data-reveal>[ AI CHATBOT ]</span>
-    <div class="cb-grid">
-      <div class="cb-copy" data-reveal>
-        <h2 class="h-lg">Try the AI<br>chatbot live</h2>
-        <p>A chatbot on your website answers customer questions around the clock, saves phone time and brings more inquiries, because visitors get an answer right away. Try it yourself: the assistant on the right knows a fictional hair salon.</p>
-        <a href="#contact" class="btn solid">I want a bot like this for my business</a>
-      </div>
-      <div data-reveal>
-        <p class="cb-notice"><b>Fictional example business:</b> Salon Lumen, an invented hair salon in Offenburg, Germany. All details are made up.</p>
-        <div class="cb-chips"><span class="label">[ Example questions ]</span><button type="button" data-ask="Are you open on Saturdays?">Are you open on Saturdays?</button><button type="button" data-ask="How much are highlights?">How much are highlights?</button><button type="button" data-ask="Can I pay by card?">Can I pay by card?</button></div>
-        <div id="chat-demo" aria-live="polite">Loading chat …</div>
-        <!-- Widget von Vercel; die Adresse muss zur Vercel-Installation passen (TODO: nach dem Deploy prüfen) -->
-        <script src="https://artola-chatbot.vercel.app/widget.js" data-bot="demo-friseur" data-mode="inline" data-target="#chat-demo"
-                data-theme="dark" data-title="Salon Lumen" data-color="#60A5FA" data-lang="en" data-height="540px"
-                data-greeting="Hello! I'm the digital assistant of Salon Lumen. Ask me about prices, opening hours or appointments."
-                onerror="document.getElementById('chat-demo').textContent='The demo is not available right now. Feel free to write to me directly at info@artola-digitalsolution.com or call +49 176 2171 9514.'" defer></script>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -728,14 +691,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     });
   })();
 
-
-  /* Beispielfragen an den Chatbot schicken */
-  document.querySelectorAll('[data-ask]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var t = document.getElementById('chat-demo');
-      if(t && t.ask) t.ask(b.getAttribute('data-ask'));
-    });
-  });
 
   /* Cursor "View" */
   var cursor = document.getElementById('cursor');
