@@ -10,9 +10,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts.css">
 <style>
 :root{
   --bg:#0a0a0a;
@@ -76,10 +74,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- hero ---------- */
 .hero{min-height:100vh;min-height:100svh;padding:120px var(--pad) 40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:-10% 0;z-index:0;opacity:.22}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg) 0%,transparent 35%,transparent 60%,var(--bg) 100%)}
-.hero>*:not(.hero-bg){position:relative;z-index:1}
 .hero h1{margin-top:2vh;font-size:min(12vw,14vh)}
 .mask{overflow:hidden;display:block;padding-bottom:.06em}
 .mask>span{display:block}
@@ -99,11 +93,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .reveal-text{font-family:var(--head);font-weight:600;letter-spacing:-.025em;line-height:1.08;font-size:clamp(28px,5vw,80px);max-width:1400px;margin-top:40px}
 .reveal-text .w{color:var(--text)}
 .js .reveal-text .w{color:#2e2e2e}
-.marquee{margin-top:clamp(60px,9vw,140px);overflow:hidden;margin-inline:calc(var(--pad)*-1)}
-.marquee-track{display:flex;gap:20px;width:max-content;animation:marquee 45s linear infinite;padding-left:20px}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee img{width:clamp(220px,24vw,380px);aspect-ratio:1;object-fit:cover;border-radius:22px;background:var(--surface)}
-@keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- projects ---------- */
 .projects-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,90px)}
@@ -158,10 +147,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- CTA ---------- */
 .cta{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--pad)}
-.cta-cols{position:absolute;inset:-20% 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 var(--pad);opacity:.35;z-index:0}
-.cta-col{display:flex;flex-direction:column;gap:20px}
-.cta-col img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px}
-.cta::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(10,10,10,.85) 0%,rgba(10,10,10,.5) 60%,var(--bg) 100%)}
 .cta-content{position:relative;z-index:2}
 .cta-content .h-xl{font-size:clamp(44px,9.5vw,160px);line-height:.92;text-transform:none;margin-bottom:48px}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -192,8 +177,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   .portrait{position:relative;top:0;max-width:420px}
   .foot-top{grid-template-columns:1fr 1fr}
   .foot-top>:first-child{grid-column:1/-1}
-  .cta-cols{grid-template-columns:repeat(2,1fr)}
-  .cta-col:nth-child(n+3){display:none}
   .card-body{grid-template-columns:1fr}
   .card-actions{grid-column:auto}
   .card-actions .card-link{flex:1 1 auto}
@@ -269,7 +252,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   .js [data-reveal]{opacity:1;transform:none}
   .js .mask>span{transform:none}
   .js .reveal-text .w{color:var(--text)}
-  .marquee-track{animation:none}
   .scroll-hint svg{animation:none}
   .card{position:relative;top:0}
   *{transition-duration:.01ms!important}
@@ -305,7 +287,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" id="heroBg"><img src="https://picsum.photos/seed/artola-hero/1920/1200" alt="" loading="eager"></div>
   <h1 class="h-xl" aria-label="Websites und Digital Products">
     <span class="mask"><span>Websites</span></span>
     <span class="mask"><span class="amp">&amp;</span></span>
@@ -315,8 +296,8 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   <div class="hero-bottom">
     <p class="intro" data-hero-fade>Hey, ich bin <b>Artin Lasu</b>. Ich gestalte <b>Websites &amp; KI-Lösungen</b> unter dem Dach von <b>Artola Digital Solution</b>.</p>
     <div class="stats" data-hero-fade>
-      <div class="stat"><strong><span data-count="5">5</span>+</strong><span>[ Jahre Erfahrung ]</span></div>
-      <div class="stat"><strong><span data-count="40">40</span>+</strong><span>[ Projekte ]</span></div>
+      <div class="stat"><strong><span data-count="24">24</span>h</strong><span>[ Antwortzeit ]</span></div>
+      <div class="stat"><strong><span data-count="7">7</span></strong><span>[ Tage bis zum Launch ]</span></div>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">Scroll
@@ -328,21 +309,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 <section class="section" id="what">
   <div class="wrap">
     <span class="label" data-reveal>[ WHAT I DO ]</span>
-    <p class="reveal-text" id="revealText">Ich entwickle schnelle, klare und überzeugende Websites und verbinde sie mit KI-gestützten Workflows, damit [ZIELGRUPPE] mehr Kunden gewinnt, Zeit spart und online professionell auftritt.</p>
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <img src="https://picsum.photos/seed/art1/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art2/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art3/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art4/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art5/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art1/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art2/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art3/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art4/600/600" alt="" loading="lazy">
-        <img src="https://picsum.photos/seed/art5/600/600" alt="" loading="lazy">
-      </div>
-    </div>
+    <p class="reveal-text" id="revealText">Ich entwickle schnelle, klare und überzeugende Websites und verbinde sie mit KI-gestützten Workflows, damit kleine Unternehmen, Gastronomie und Ferienwohnungen mehr Kunden gewinnen, Zeit sparen und online professionell auftreten.</p>
   </div>
 </section>
 
@@ -444,9 +411,8 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
         <div class="about-block" style="margin-top:20px" data-reveal>
           <span class="label">[ What I do best ]</span>
           <div class="skills">
-            <span>Webentwicklung</span><span>KI-Integration</span><span>Webdesign</span><span>Wirtschaftsinformatik</span><span>[weitere Skills]</span>
+            <span>Webentwicklung</span><span>KI-Integration</span><span>Webdesign</span><span>Wirtschaftsinformatik</span>
           </div>
-          <a href="#" class="btn solid" download>DOWNLOAD RESUME ↓</a>
         </div>
       </div>
     </div>
@@ -455,17 +421,10 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
 <!-- CTA -->
 <section class="cta" id="archive">
-  <div class="cta-cols" aria-hidden="true">
-    <div class="cta-col" data-dir="-1"><img src="https://picsum.photos/seed/s1/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s2/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s3/450/800" alt="" loading="lazy"></div>
-    <div class="cta-col" data-dir="1"><img src="https://picsum.photos/seed/s4/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s5/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s6/450/800" alt="" loading="lazy"></div>
-    <div class="cta-col" data-dir="-1"><img src="https://picsum.photos/seed/s7/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s8/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s9/450/800" alt="" loading="lazy"></div>
-    <div class="cta-col" data-dir="1"><img src="https://picsum.photos/seed/s10/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s11/450/800" alt="" loading="lazy"><img src="https://picsum.photos/seed/s12/450/800" alt="" loading="lazy"></div>
-  </div>
   <div class="cta-content">
     <h2 class="h-xl" data-reveal>Let's build something together.</h2>
     <div class="cta-btns" data-reveal>
       <a href="mailto:info@artola-digitalsolution.com" class="btn solid">LET'S TALK</a>
-      <a href="#" class="btn">EXPLORE THE ARCHIVE</a>
     </div>
   </div>
 </section>
@@ -492,8 +451,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     <div class="col" data-reveal>
       <h4>[ FOLLOW ]</h4>
       <a href="https://www.linkedin.com/in/artin-lasu-996284341/" class="roll" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="[INSTAGRAM-URL]" class="roll" target="_blank" rel="noopener">Instagram</a>
-      <a href="[GITHUB-URL]" class="roll" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
   <div class="slogan" aria-hidden="true">
@@ -504,8 +461,8 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   <div class="foot-bottom">
     <span>© <span id="year">2026</span> Artola Digital Solution · Kippenheim</span>
     <nav>
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
       <a href="#top" id="toTop">Back to top ↑</a>
     </nav>
   </div>
@@ -527,9 +484,9 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   </div>
   <div class="lb-thumbs" id="lbThumbs"></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
 <script>
 (function(){
   var root = document.documentElement;
@@ -708,7 +665,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
   gsap.registerPlugin(ScrollTrigger);
 
   /* Hero: Zeilen aus Maske einblenden (gestaffelt 0.1s) */
-  gsap.set('.hero h1 .mask > span', {yPercent:110});
+  gsap.set('.hero h1 .mask > span', {y:0, yPercent:110}); // y:0 überschreibt den aus dem CSS gelesenen Pixelwert
   var heroTl = gsap.timeline({delay:.2});
   heroTl.to('.hero h1 .mask > span', {yPercent:0, duration:1.1, ease:'power4.out', stagger:.1})
         .from('[data-hero-fade]', {opacity:0, y:30, duration:.9, ease:'power3.out', stagger:.12}, '-=.6');
@@ -719,9 +676,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     el.textContent = 0;
     gsap.to(o, {v:target, duration:2.2, delay:.9, ease:'power2.out', onUpdate:function(){ el.textContent = Math.round(o.v); }});
   });
-
-  /* Hero-Parallax */
-  gsap.to('#heroBg', {yPercent:18, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
 
   /* Fade-up für Labels & Texte */
   ScrollTrigger.batch('[data-reveal]', {
@@ -744,12 +698,6 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
     var st = {trigger:next, start:'top bottom', end:'top 14%', scrub:true};
     gsap.to(card.querySelector('.card-inner'), {scale:.94, ease:'none', scrollTrigger:st});
     gsap.to(card.querySelector('.card-shade'), {opacity:.55, ease:'none', scrollTrigger:st});
-  });
-
-  /* CTA Parallax-Spalten */
-  gsap.utils.toArray('.cta-col').forEach(function(col){
-    var dir = +col.getAttribute('data-dir');
-    gsap.fromTo(col, {yPercent:-12*dir}, {yPercent:12*dir, ease:'none', scrollTrigger:{trigger:'.cta', start:'top bottom', end:'bottom top', scrub:true}});
   });
 
   window.addEventListener('load', function(){ ScrollTrigger.refresh(); });

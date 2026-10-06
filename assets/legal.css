@@ -1,0 +1,29 @@
+/* Gemeinsames Design für Impressum / Datenschutz (gleiche Variablen wie die Hauptseite) */
+:root{
+  --bg:#0a0a0a;--surface:#141414;--text:#f4f4f2;--muted:#6b6b6b;--line:rgba(255,255,255,.14);
+  --accent:#60A5FA;--pad:clamp(20px,4vw,56px);
+  --head:'Inter Tight','Space Grotesk',system-ui,sans-serif;--body:'Space Grotesk',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:clamp(15px,1.1vw,18px);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+::selection{background:var(--accent);color:#000}
+.nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px var(--pad);background:rgba(10,10,10,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.nav .logo{display:block;line-height:0}
+.nav .logo img{height:46px;width:auto;margin:-6px 0}
+.nav .right{display:flex;align-items:center;gap:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;padding:12px 22px;border:1px solid var(--line);border-radius:999px;text-decoration:none;transition:background .3s,color .3s,border-color .3s}
+.btn:hover{background:var(--text);color:#000;border-color:var(--text)}
+main{flex:1;width:100%;max-width:820px;margin:0 auto;padding:clamp(50px,8vw,110px) var(--pad)}
+.label{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h1{font-family:var(--head);font-weight:800;letter-spacing:-.03em;line-height:1;font-size:clamp(40px,7vw,88px);margin-bottom:clamp(36px,5vw,64px)}
+h2{font-family:var(--head);font-weight:700;letter-spacing:-.02em;line-height:1.1;font-size:clamp(20px,2.2vw,28px);margin:clamp(30px,4vw,48px) 0 12px}
+p,li,address{color:#cfcfcf;margin-bottom:1em;font-style:normal}
+ul{padding-left:1.2em;margin-bottom:1em}
+a.inline{color:var(--accent);text-underline-offset:3px}
+.ph{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:24px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+footer nav{display:flex;gap:24px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:var(--text)}
+@media (max-width:520px){.nav .right a:not(.btn){display:none}}
