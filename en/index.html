@@ -112,6 +112,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dev-screen{position:relative;width:100%;height:100%;border-radius:clamp(11px,1.9vw,26px);overflow:hidden;background:#fff}
 .dev-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .9s ease}
 .dev-screen img.on{opacity:1}
+.dev-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .card:hover .dev-desktop{transform:translateY(-6px)}
 .card:hover .dev-phone{transform:translateY(-12px)}
 .card-body{display:grid;grid-template-columns:56px 1fr;gap:clamp(12px,2vw,32px);align-items:end;padding:clamp(16px,2vw,28px) 6px 6px}
@@ -336,6 +337,25 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
             <div class="card-actions">
               <button type="button" class="card-link gal-open" data-gallery="fewo">View screenshots</button>
               <a href="https://fewo-bakilala.com/" class="card-link solid" target="_blank" rel="noopener">Visit site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-shade"></div>
+      </article>
+      <article class="card" data-view>
+        <div class="card-inner">
+          <div class="card-media" role="group" aria-label="Saboss Barber Shop">
+            <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>Saboss Barber Shop</span></div><video src="../assets/saboss-desktop.mp4" poster="../assets/saboss-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll recording of the Saboss Barber Shop website (desktop)"></video></div>
+            <div class="dev-phone"><div class="dev-screen"><video src="../assets/saboss-phone.mp4" poster="../assets/saboss-p1.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll recording of the Saboss Barber Shop website (smartphone)"></video></div></div>
+          </div>
+          <div class="card-body">
+            <div class="card-num">2</div>
+            <div>
+              <h3>Saboss Barber Shop: website for a barber shop in Lahr, Germany</h3>
+              <div class="tags"><span>Web design</span><span>Web development</span><span>Individual design</span><span>Responsive</span></div>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="card-link gal-open" data-gallery="saboss">View screenshots</button>
             </div>
           </div>
         </div>
@@ -585,7 +605,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
   /* Screenshot-Galerie (Lightbox) */
   (function(){
-    var DATA = {"fewo": {"desktop": [["../assets/fewo-d1.jpg", "Home"], ["../assets/fewo-d2.jpg", "Living area"], ["../assets/fewo-d3.jpg", "The apartment"], ["../assets/fewo-d4.jpg", "Location"], ["../assets/fewo-d5.jpg", "Gallery"], ["../assets/fewo-d6.jpg", "Gallery 2"], ["../assets/fewo-d7.jpg", "Reviews"], ["../assets/fewo-d8.jpg", "Booking"]], "phone": [["../assets/fewo-mg1.jpg", "Home"], ["../assets/fewo-mg2.jpg", "Living area"], ["../assets/fewo-mg3.jpg", "Location"], ["../assets/fewo-mg4.jpg", "Gallery"], ["../assets/fewo-mg5.jpg", "Reviews"]]}};
+    var DATA = {"fewo": {"desktop": [["../assets/fewo-d1.jpg", "Home"], ["../assets/fewo-d2.jpg", "Living area"], ["../assets/fewo-d3.jpg", "The apartment"], ["../assets/fewo-d4.jpg", "Location"], ["../assets/fewo-d5.jpg", "Gallery"], ["../assets/fewo-d6.jpg", "Gallery 2"], ["../assets/fewo-d7.jpg", "Reviews"], ["../assets/fewo-d8.jpg", "Booking"]], "phone": [["../assets/fewo-mg1.jpg", "Home"], ["../assets/fewo-mg2.jpg", "Living area"], ["../assets/fewo-mg3.jpg", "Location"], ["../assets/fewo-mg4.jpg", "Gallery"], ["../assets/fewo-mg5.jpg", "Reviews"]]}, "saboss": {"desktop": [["../assets/saboss-d1.jpg", "Home"], ["../assets/saboss-d2.jpg", "Reviews"], ["../assets/saboss-d3.jpg", "Price list"], ["../assets/saboss-d4.jpg", "Book an appointment"]], "phone": [["../assets/saboss-p1.jpg", "Home"], ["../assets/saboss-p2.jpg", "Ship wheel"], ["../assets/saboss-p3.jpg", "Reviews"], ["../assets/saboss-p4.jpg", "Price list"]]}};
     var lb = document.getElementById('lb'); if(!lb) return;
     var img = document.getElementById('lbImg'), cap = document.getElementById('lbCap'),
         count = document.getElementById('lbCount'), thumbs = document.getElementById('lbThumbs'),
