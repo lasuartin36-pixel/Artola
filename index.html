@@ -113,6 +113,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dev-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .9s ease}
 .dev-screen img.on{opacity:1}
 .dev-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.dev-desktop .dev-screen{flex:1;min-height:0;height:auto;border-radius:0}
 .card:hover .dev-desktop{transform:translateY(-6px)}
 .card:hover .dev-phone{transform:translateY(-12px)}
 .card-body{display:grid;grid-template-columns:56px 1fr;gap:clamp(12px,2vw,32px);align-items:end;padding:clamp(16px,2vw,28px) 6px 6px}
@@ -362,6 +363,26 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
         </div>
         <div class="card-shade"></div>
       </article>
+      <article class="card" data-view>
+        <div class="card-inner">
+          <div class="card-media" role="group" aria-label="Stevo's Premium Autopflege">
+            <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>Stevo's Premium Autopflege</span></div><div class="dev-screen"><img class="on" src="assets/stevos-d1.jpg" alt="Startseite" width="1600" height="900"><img src="assets/stevos-d3.jpg" alt="Preispakete" width="1600" height="900" loading="lazy"><img src="assets/stevos-d5.jpg" alt="Vorher/Nachher-Slider" width="1600" height="900" loading="lazy"><img src="assets/stevos-d8.jpg" alt="Kontakt" width="1600" height="900" loading="lazy"></div></div>
+            <div class="dev-phone"><div class="dev-screen"><img class="on" src="assets/stevos-p1.jpg" alt="Smartphone-Ansicht: Startseite" width="780" height="1688"><img src="assets/stevos-p3.jpg" alt="Smartphone-Ansicht: Preispakete" width="780" height="1688" loading="lazy"><img src="assets/stevos-p4.jpg" alt="Smartphone-Ansicht: Platin-Paket und Zusatzservice" width="780" height="1688" loading="lazy"><img src="assets/stevos-p5.jpg" alt="Smartphone-Ansicht: Vorher/Nachher-Slider" width="780" height="1688" loading="lazy"><img src="assets/stevos-p8.jpg" alt="Smartphone-Ansicht: Kontakt" width="780" height="1688" loading="lazy"></div></div>
+          </div>
+          <div class="card-body">
+            <div class="card-num">3</div>
+            <div>
+              <h3>Stevo's Premium Autopflege: Website für eine Autoaufbereitung in Lahr</h3>
+              <div class="tags"><span>Webdesign</span><span>Webentwicklung</span><span>Preispakete</span><span>Vorher/Nachher-Slider</span><span>Responsive</span></div>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="card-link gal-open" data-gallery="stevos">Screenshots ansehen</button>
+              <a href="https://lasuartin36-pixel.github.io/Stevos-Premium-Autopflege/" class="card-link solid" target="_blank" rel="noopener">Seite besuchen ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-shade"></div>
+      </article>
     </div>
     <div class="self-note" data-reveal>
       <span class="label">[ ÜBER DIESE SEITE ]</span>
@@ -606,7 +627,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 
   /* Screenshot-Galerie (Lightbox) */
   (function(){
-    var DATA = {"fewo": {"desktop": [["assets/fewo-d1.jpg", "Startseite"], ["assets/fewo-d2.jpg", "Wohnbereich"], ["assets/fewo-d3.jpg", "Die Wohnung"], ["assets/fewo-d4.jpg", "Lage"], ["assets/fewo-d5.jpg", "Galerie"], ["assets/fewo-d6.jpg", "Galerie 2"], ["assets/fewo-d7.jpg", "Bewertungen"], ["assets/fewo-d8.jpg", "Buchen"]], "phone": [["assets/fewo-mg1.jpg", "Startseite"], ["assets/fewo-mg2.jpg", "Wohnbereich"], ["assets/fewo-mg3.jpg", "Lage"], ["assets/fewo-mg4.jpg", "Galerie"], ["assets/fewo-mg5.jpg", "Bewertungen"]]}, "saboss": {"desktop": [["assets/saboss-d1.jpg", "Startseite"], ["assets/saboss-d2.jpg", "Kundenstimmen"], ["assets/saboss-d3.jpg", "Preisliste"], ["assets/saboss-d4.jpg", "Termin buchen"]], "phone": [["assets/saboss-p1.jpg", "Startseite"], ["assets/saboss-p2.jpg", "Steuerrad"], ["assets/saboss-p3.jpg", "Kundenstimmen"], ["assets/saboss-p4.jpg", "Preisliste"]]}};
+    var DATA = {"fewo": {"desktop": [["assets/fewo-d1.jpg", "Startseite"], ["assets/fewo-d2.jpg", "Wohnbereich"], ["assets/fewo-d3.jpg", "Die Wohnung"], ["assets/fewo-d4.jpg", "Lage"], ["assets/fewo-d5.jpg", "Galerie"], ["assets/fewo-d6.jpg", "Galerie 2"], ["assets/fewo-d7.jpg", "Bewertungen"], ["assets/fewo-d8.jpg", "Buchen"]], "phone": [["assets/fewo-mg1.jpg", "Startseite"], ["assets/fewo-mg2.jpg", "Wohnbereich"], ["assets/fewo-mg3.jpg", "Lage"], ["assets/fewo-mg4.jpg", "Galerie"], ["assets/fewo-mg5.jpg", "Bewertungen"]]}, "saboss": {"desktop": [["assets/saboss-d1.jpg", "Startseite"], ["assets/saboss-d2.jpg", "Kundenstimmen"], ["assets/saboss-d3.jpg", "Preisliste"], ["assets/saboss-d4.jpg", "Termin buchen"]], "phone": [["assets/saboss-p1.jpg", "Startseite"], ["assets/saboss-p2.jpg", "Steuerrad"], ["assets/saboss-p3.jpg", "Kundenstimmen"], ["assets/saboss-p4.jpg", "Preisliste"]]}, "stevos": {"desktop": [["assets/stevos-d1.jpg", "Startseite"], ["assets/stevos-d2.jpg", "Leistungen"], ["assets/stevos-d3.jpg", "Preispakete"], ["assets/stevos-d4.jpg", "Zusatzservice und Vorher/Nachher"], ["assets/stevos-d5.jpg", "Vorher/Nachher-Slider"], ["assets/stevos-d6.jpg", "Über uns"], ["assets/stevos-d7.jpg", "Kundenstimmen"], ["assets/stevos-d8.jpg", "Kontakt"]], "phone": [["assets/stevos-p1.jpg", "Startseite"], ["assets/stevos-p2.jpg", "Leistungen"], ["assets/stevos-p3.jpg", "Preispakete"], ["assets/stevos-p4.jpg", "Platin-Paket und Zusatzservice"], ["assets/stevos-p5.jpg", "Vorher/Nachher-Slider"], ["assets/stevos-p6.jpg", "Über uns"], ["assets/stevos-p7.jpg", "Kundenstimmen"], ["assets/stevos-p8.jpg", "Kontakt"]]}};
     var lb = document.getElementById('lb'); if(!lb) return;
     var img = document.getElementById('lbImg'), cap = document.getElementById('lbCap'),
         count = document.getElementById('lbCount'), thumbs = document.getElementById('lbThumbs'),
