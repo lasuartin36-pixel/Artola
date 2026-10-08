@@ -113,7 +113,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dev-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .9s ease}
 .dev-screen img.on{opacity:1}
 .dev-screen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
-.dev-desktop .dev-screen{flex:1;min-height:0;height:auto;border-radius:0}
 .card:hover .dev-desktop{transform:translateY(-6px)}
 .card:hover .dev-phone{transform:translateY(-12px)}
 .card-body{display:grid;grid-template-columns:56px 1fr;gap:clamp(12px,2vw,32px);align-items:end;padding:clamp(16px,2vw,28px) 6px 6px}
@@ -366,8 +365,8 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
       <article class="card" data-view>
         <div class="card-inner">
           <div class="card-media" role="group" aria-label="Stevo's Premium Autopflege">
-            <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>Stevo's Premium Autopflege</span></div><div class="dev-screen"><img class="on" src="assets/stevos-d1.jpg" alt="Startseite" width="1600" height="900"><img src="assets/stevos-d3.jpg" alt="Preispakete" width="1600" height="900" loading="lazy"><img src="assets/stevos-d5.jpg" alt="Vorher/Nachher-Slider" width="1600" height="900" loading="lazy"><img src="assets/stevos-d8.jpg" alt="Kontakt" width="1600" height="900" loading="lazy"></div></div>
-            <div class="dev-phone"><div class="dev-screen"><img class="on" src="assets/stevos-p1.jpg" alt="Smartphone-Ansicht: Startseite" width="780" height="1688"><img src="assets/stevos-p3.jpg" alt="Smartphone-Ansicht: Preispakete" width="780" height="1688" loading="lazy"><img src="assets/stevos-p4.jpg" alt="Smartphone-Ansicht: Platin-Paket und Zusatzservice" width="780" height="1688" loading="lazy"><img src="assets/stevos-p5.jpg" alt="Smartphone-Ansicht: Vorher/Nachher-Slider" width="780" height="1688" loading="lazy"><img src="assets/stevos-p8.jpg" alt="Smartphone-Ansicht: Kontakt" width="780" height="1688" loading="lazy"></div></div>
+            <div class="dev-desktop"><div class="dev-bar"><i></i><i></i><i></i><span>Stevo's Premium Autopflege</span></div><video src="assets/stevos-desktop.mp4" poster="assets/stevos-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll-Aufnahme der Website von Stevo's Premium Autopflege (Desktop)"></video></div>
+            <div class="dev-phone"><div class="dev-screen"><video src="assets/stevos-phone.mp4" poster="assets/stevos-phone-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll-Aufnahme der Website von Stevo's Premium Autopflege (Smartphone)"></video></div></div>
           </div>
           <div class="card-body">
             <div class="card-num">3</div>
