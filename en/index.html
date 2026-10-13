@@ -202,6 +202,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 /* ---------- pricing ---------- */
 .pr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
 .pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pr-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .pr-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,2.6vw,36px)}
 .pr-card.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 50px rgba(96,165,250,.12)}
 .pr-name{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
@@ -218,7 +219,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 .pr-extra p{color:#b8b8b8;font-size:14px;max-width:360px}
 .pr-extra .pr-tag{font-family:var(--head);font-weight:700;font-size:clamp(20px,2vw,28px);white-space:nowrap;color:var(--accent)}
 .pr-note{margin-top:24px;font-size:13px;color:var(--muted);max-width:760px}
-@media (max-width:900px){.pr-grid,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
+@media (max-width:900px){.pr-grid,.pr-grid.two,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
 
 /* ---------- gallery lightbox ---------- */
 .card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
@@ -431,34 +432,27 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 </section>
 
 <!-- PROMPTS -->
-<!-- TODO: replace placeholders (package names, texts, prices) and add the Digistore24 links on "Buy now" -->
+<!-- TODO: enter the price (€XX) and set the Digistore24 product link on "Buy now" -->
 <section class="section" id="prompts">
   <div class="wrap">
     <div class="pr-head">
       <h2 class="h-xl" data-reveal style="font-size:clamp(44px,9vw,150px)">Prompt<br>packs</h2>
       <span class="label" data-reveal>[ DIGITAL PRODUCTS ]</span>
     </div>
-    <div class="pr-grid">
-      <article class="pr-card" data-reveal>
-        <span class="pr-name">Pack 1</span>
-        <div class="pr-price">€XX</div>
-        <p class="pr-for">Short description: who is this pack for?</p>
-        <ul class="pr-list"><li>Number and type of prompts</li><li>Format (e.g. PDF or Notion)</li><li>Instant download after purchase</li></ul>
-        <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Buy now</a>
-      </article>
+    <div class="pr-grid two">
       <article class="pr-card hl" data-reveal>
-        <span class="pr-name">Pack 2</span>
+        <span class="pr-name">Vacation rentals</span>
         <div class="pr-price">€XX</div>
-        <p class="pr-for">Short description: who is this pack for?</p>
-        <ul class="pr-list"><li>Number and type of prompts</li><li>Format (e.g. PDF or Notion)</li><li>Instant download after purchase</li></ul>
+        <p class="pr-for"><b>AI Host Kit:</b> for vacation rentals and Airbnb, from listing to 5-star review.</p>
+        <ul class="pr-list"><li>50 prompts in 7 chapters</li><li>Listing, guest messages, reviews and house manual</li><li>Pricing and occupancy, marketing, operations</li><li>Host profile to paste into ChatGPT, Claude, Gemini or Copilot</li><li>PDF, 20 pages, instant download</li></ul>
         <a href="https://www.digistore24.com/" class="btn solid" target="_blank" rel="noopener">Buy now</a>
       </article>
       <article class="pr-card" data-reveal>
-        <span class="pr-name">Pack 3</span>
-        <div class="pr-price">€XX</div>
-        <p class="pr-for">Short description: who is this pack for?</p>
-        <ul class="pr-list"><li>Number and type of prompts</li><li>Format (e.g. PDF or Notion)</li><li>Instant download after purchase</li></ul>
-        <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Buy now</a>
+        <span class="pr-name">Math · Teachers</span>
+        <div class="pr-price">3 packs<small>Analysis I, Analysis II, Stochastics</small></div>
+        <p class="pr-for">Three prompt packs for math teachers with 100 prompts each, written for the German upper-school curriculum (grades 10 to 13) and available in German only.</p>
+        <ul class="pr-list"><li>Lesson planning, exams and Abitur preparation</li><li>Start prompt for federal state, course and tools</li><li>PDF, instant download</li></ul>
+        <a href="../#prompts" class="btn" hreflang="de" lang="de">German version</a>
       </article>
     </div>
     <p class="pr-note" data-reveal>Digital products for instant download. Purchase and payment are handled by Digistore24; prices include statutory VAT where applicable. Questions before buying? Just get in touch via the <a href="#contact" style="text-decoration:underline">contact</a> section.</p>

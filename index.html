@@ -202,6 +202,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 /* ---------- pricing ---------- */
 .pr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
 .pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pr-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .pr-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,2.6vw,36px)}
 .pr-card.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 50px rgba(96,165,250,.12)}
 .pr-name{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
@@ -218,7 +219,7 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 .pr-extra p{color:#b8b8b8;font-size:14px;max-width:360px}
 .pr-extra .pr-tag{font-family:var(--head);font-weight:700;font-size:clamp(20px,2vw,28px);white-space:nowrap;color:var(--accent)}
 .pr-note{margin-top:24px;font-size:13px;color:var(--muted);max-width:760px}
-@media (max-width:900px){.pr-grid,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
+@media (max-width:900px){.pr-grid,.pr-grid.two,.pr-extras{grid-template-columns:1fr}.pr-extra{flex-direction:column;gap:12px}.pr-extra p{max-width:none}}
 
 /* ---------- gallery lightbox ---------- */
 .card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
@@ -431,37 +432,44 @@ footer{padding:clamp(80px,10vw,160px) var(--pad) 28px;border-top:1px solid var(-
 </section>
 
 <!-- PROMPTS -->
-<!-- TODO: Platzhalter ersetzen (Paketnamen, Texte, Preise) und die Digistore24-Links bei "Jetzt kaufen" eintragen -->
+<!-- TODO: Preise (XX €) eintragen und bei jedem "Jetzt kaufen" den Digistore24-Produktlink setzen -->
 <section class="section" id="prompts">
   <div class="wrap">
     <div class="pr-head">
       <h2 class="h-xl" data-reveal style="font-size:clamp(44px,9vw,150px)">Prompt-<br>Pakete</h2>
       <span class="label" data-reveal>[ DIGITALE PRODUKTE ]</span>
     </div>
-    <div class="pr-grid">
-      <article class="pr-card" data-reveal>
-        <span class="pr-name">Paket 1</span>
-        <div class="pr-price">XX €</div>
-        <p class="pr-for">Kurze Beschreibung: für wen ist dieses Paket gedacht?</p>
-        <ul class="pr-list"><li>Anzahl und Art der Prompts</li><li>Format (z. B. PDF oder Notion)</li><li>Sofortiger Download nach dem Kauf</li></ul>
-        <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Jetzt kaufen</a>
-      </article>
+    <div class="pr-grid two">
       <article class="pr-card hl" data-reveal>
-        <span class="pr-name">Paket 2</span>
+        <span class="pr-name">Ferienvermietung</span>
         <div class="pr-price">XX €</div>
-        <p class="pr-for">Kurze Beschreibung: für wen ist dieses Paket gedacht?</p>
-        <ul class="pr-list"><li>Anzahl und Art der Prompts</li><li>Format (z. B. PDF oder Notion)</li><li>Sofortiger Download nach dem Kauf</li></ul>
+        <p class="pr-for"><b>KI-Kit für Gastgeber:</b> für Ferienwohnungen und Airbnb, vom Inserat bis zur 5-Sterne-Bewertung.</p>
+        <ul class="pr-list"><li>50 Prompts in 7 Kapiteln</li><li>Inserat, Gästenachrichten, Bewertungen und Gästemappe</li><li>Preise und Belegung, Marketing, Organisation</li><li>Gastgeber-Profil zum Einfügen in ChatGPT, Claude, Gemini oder Copilot</li><li>PDF, 20 Seiten, sofortiger Download</li></ul>
         <a href="https://www.digistore24.com/" class="btn solid" target="_blank" rel="noopener">Jetzt kaufen</a>
       </article>
       <article class="pr-card" data-reveal>
-        <span class="pr-name">Paket 3</span>
+        <span class="pr-name">Mathematik · Lehrkräfte</span>
         <div class="pr-price">XX €</div>
-        <p class="pr-for">Kurze Beschreibung: für wen ist dieses Paket gedacht?</p>
-        <ul class="pr-list"><li>Anzahl und Art der Prompts</li><li>Format (z. B. PDF oder Notion)</li><li>Sofortiger Download nach dem Kauf</li></ul>
+        <p class="pr-for"><b>Analysis I mit KI:</b> für Klasse 10 bis 13, von der Änderungsrate bis zur Kurvendiskussion.</p>
+        <ul class="pr-list"><li>100 Prompts in 12 Kapiteln</li><li>Unterricht planen, Ableitungsregeln, Extremwertprobleme</li><li>Klausuren, Abiturvorbereitung und Korrektur</li><li>Startprompt für Bundesland, Kurs und Hilfsmittel</li><li>PDF, 33 Seiten, sofortiger Download</li></ul>
+        <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Jetzt kaufen</a>
+      </article>
+      <article class="pr-card" data-reveal>
+        <span class="pr-name">Mathematik · Lehrkräfte</span>
+        <div class="pr-price">XX €</div>
+        <p class="pr-for"><b>Analysis II mit KI:</b> für Klasse 11 bis 13, von der Stammfunktion bis zum Wachstumsmodell.</p>
+        <ul class="pr-list"><li>100 Prompts in 12 Kapiteln</li><li>Integralrechnung, Flächenberechnung, Wachstumsmodelle</li><li>Klausuren, Abiturvorbereitung und Korrektur</li><li>Startprompt für Bundesland, Kurs und Hilfsmittel</li><li>PDF, 33 Seiten, sofortiger Download</li></ul>
+        <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Jetzt kaufen</a>
+      </article>
+      <article class="pr-card" data-reveal>
+        <span class="pr-name">Mathematik · Lehrkräfte</span>
+        <div class="pr-price">XX €</div>
+        <p class="pr-for"><b>Stochastik mit KI:</b> für Klasse 10 bis 13, vom Baumdiagramm bis zum Hypothesentest.</p>
+        <ul class="pr-list"><li>100 Prompts in 11 Kapiteln</li><li>Bedingte Wahrscheinlichkeit, Binomialverteilung, Normalverteilung</li><li>Klausuren, Abiturvorbereitung und Korrektur</li><li>Startprompt für Bundesland, Kurs und Hilfsmittel</li><li>PDF, 34 Seiten, sofortiger Download</li></ul>
         <a href="https://www.digistore24.com/" class="btn" target="_blank" rel="noopener">Jetzt kaufen</a>
       </article>
     </div>
-    <p class="pr-note" data-reveal>Digitale Produkte zum sofortigen Download. Kauf und Zahlung laufen über den Anbieter Digistore24; Preise inklusive gesetzlicher Umsatzsteuer, soweit anfällt. Fragen vor dem Kauf? Schreib mir einfach per <a href="#contact" style="text-decoration:underline">Kontakt</a>.</p>
+    <p class="pr-note" data-reveal>Digitale Produkte zum sofortigen Download. Kauf und Zahlung laufen über den Anbieter Digistore24; Preise inklusive gesetzlicher Umsatzsteuer, soweit anfällt. Das Gastgeber-Kit gibt es auch auf Englisch: <a href="en/#prompts" style="text-decoration:underline" hreflang="en" lang="en">AI Host Kit</a>. Fragen vor dem Kauf? Schreib mir einfach über den <a href="#contact" style="text-decoration:underline">Kontakt</a>.</p>
   </div>
 </section>
 
